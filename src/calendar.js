@@ -253,19 +253,13 @@ angular.module('ui.calendar', [])
                         var localeFullCalendarConfig = controller.getLocaleConfig(fullCalendarConfig);
                         angular.extend(localeFullCalendarConfig, fullCalendarConfig);
                         options = {
-                            eventSources : sources
+                            events : sources
                         };
                         angular.extend(options, localeFullCalendarConfig);
                         //remove calendars from options
                         options.calendars = null;
 
-                        var options2 = {};
-                        for (var o in options) {
-                            if (o !== 'eventSources') {
-                                options2[o] = options[o];
-                            }
-                        }
-                        return JSON.stringify(options2);
+                        return JSON.stringify(options);
                     }
 
                     scope.destroyCalendar = function () {
